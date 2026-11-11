@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free browser-based site planning calculator for architecture and urban planning students.">
+  <title>PlanWise — Urban Planning Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero"><div class="container"><span class="eyebrow">OPEN-SOURCE DESIGN TOOL</span><h1>Plan<span>Wise</span></h1><p>Simple calculations for thoughtful places.</p><nav><a href="#fsi">FSI / FAR</a><a href="#coverage">Coverage</a><a href="#landuse">Land use</a><a href="#parking">Parking</a></nav></div></header>
+  <main class="container">
+    <div class="note">Educational estimates only. Always verify local development-control regulations, definitions and parking standards before using results in a real project.</div>
+    <section class="grid">
+      <article class="card" id="fsi"><span class="number">01 / DEVELOPMENT INTENSITY</span><h2>FSI / FAR</h2><p>Floor Space Index = total counted floor area ÷ plot area.</p><label for="fsiPlot">Plot area (m²)</label><input id="fsiPlot" type="number" min="0" step="any" value="1000"><label for="floorArea">Counted floor area (m²)</label><input id="floorArea" type="number" min="0" step="any" value="1800"><div class="result" id="fsiResult" aria-live="polite"></div></article>
+      <article class="card" id="coverage"><span class="number">02 / SITE FOOTPRINT</span><h2>Ground Coverage</h2><p>Coverage = building footprint ÷ plot area × 100.</p><label for="coveragePlot">Plot area (m²)</label><input id="coveragePlot" type="number" min="0" step="any" value="1000"><label for="footprint">Building footprint (m²)</label><input id="footprint" type="number" min="0" step="any" value="400"><div class="result" id="coverageResult" aria-live="polite"></div></article>
+      <article class="card" id="landuse"><span class="number">03 / LAND DISTRIBUTION</span><h2>Land-use Share</h2><p>Enter different land-use areas to see their percentage of the total.</p><div id="landRows"></div><button class="secondary" id="addLand">+ Add land use</button><div class="result" id="landResult" aria-live="polite"></div><div id="landBreakdown"></div></article>
+      <article class="card" id="parking"><span class="number">04 / SPACE PLANNING</span><h2>Parking Estimate</h2><p>Illustrative area-based estimate, not a legal parking requirement.</p><label for="parkingArea">Relevant floor area (m²)</label><input id="parkingArea" type="number" min="0" step="any" value="2000"><label for="parkingRatio">Spaces per 100 m² (your assumption)</label><input id="parkingRatio" type="number" min="0" step="any" value="2"><div class="result" id="parkingResult" aria-live="polite"></div></article>
+    </section>
+    <div class="actions"><button id="download">Download results (.txt)</button><button class="secondary" id="reset">Reset example values</button></div>
+    <footer>Made for students, architects and emerging urban planners · <a href="https://github.com" target="_blank" rel="noopener noreferrer">Host this project on GitHub</a></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

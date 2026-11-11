@@ -1,0 +1,10 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { calculateFsi, calculateCoverage, calculateLandUse, calculateParking } = require('../calculations');
+test('FSI uses counted floor area divided by plot area', () => assert.equal(calculateFsi(1000,1800),1.8));
+test('FSI rejects a zero plot', () => assert.equal(calculateFsi(0,500),null));
+test('coverage calculates a percent', () => assert.equal(calculateCoverage(1000,400),40));
+test('land shares sum to 100%', () => {const result=calculateLandUse([{name:'Green',area:2},{name:'Housing',area:3}]);assert.equal(result.total,5);assert.equal(result.shares[0].percent,40);});
+test('land use rejects negative areas', () => assert.equal(calculateLandUse([{name:'Invalid',area:-1}]),null));
+test('parking rounds up', () => assert.equal(calculateParking(201,2),5));
+test('parking rejects negative input', () => assert.equal(calculateParking(-1,2),null));
